@@ -41,7 +41,7 @@ io.on('connection', socket => {
       const taskId = `site:${socket.id}:${msg.id}`;
       console.log(`socket: ${socket.id} task: ${msg.id} - new task: ${msg.url} for ${msg.email}`);
       sendNotificationMail(msg.email).then(r => {
-        console.log("EMail sent", r);
+        console.log("EMail sent successfully");
       });
       await redisSub.subscribe(taskId, response => {
         const res = JSON.parse(response);
