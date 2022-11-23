@@ -74,6 +74,7 @@ class Checker extends cdk.Stack {
       }),
       healthCheck: cdk.aws_autoscaling.HealthCheck.ec2(),
       keyName: keyName,
+      minCapacity: 0,
       maxCapacity: 0
     });
     const userDataScript = readFileSync('ec2-startup.sh', 'utf8');
